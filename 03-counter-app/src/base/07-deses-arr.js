@@ -2,13 +2,9 @@ const personajes = ['Goku', 'Vegeta', 'Trunks'];
 
 const [, ,p3] = personajes;
 
-console.log(p3);
+export const retornaArreglo = () => ['ABC', 123];
 
-const retornaArreglo = () => ['ABC', 123];
-
-const [letras, numeros] = retornaArreglo();
-
-console.log(letras, numeros);
+// const [letras, numeros] = retornaArreglo();
 
 //Tarea 
 // 1. El primer valor del arreglo se llamará nombre
@@ -16,6 +12,3 @@ console.log(letras, numeros);
 
 const usaEstado = (valor) => [valor, () => console.log('Hola Mundo')];
 
-const [nombre, setNombre] = usaEstado('Goku');
-console.log(nombre);
-setNombre();
