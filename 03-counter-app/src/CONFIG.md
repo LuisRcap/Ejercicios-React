@@ -29,7 +29,6 @@ Para hacer las pruebas con Enzyme es suficiente con importar sólo las primeras 
 
 ```js
 import React from 'react';
-import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 ```
 
