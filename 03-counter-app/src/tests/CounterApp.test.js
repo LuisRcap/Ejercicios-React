@@ -5,7 +5,7 @@ import CounterApp from '../CounterApp';
 
 describe('Pruebas en <CounterApp />', () => {
     
-    let wrapper
+    let wrapper = shallow( <CounterApp /> );        // Esto para que funcione el intelisense
 
     beforeEach( () => {
         wrapper = shallow( <CounterApp /> );
@@ -43,6 +43,19 @@ describe('Pruebas en <CounterApp />', () => {
 
         expect( contador ).toBe( 9 );
 
+    })
+    
+    test('Debe colocar el valor por defecto con el botón reset', () => {
+        const wrapper = shallow( <CounterApp value={105}/> );
+
+        wrapper.find('button').at(0).simulate('click');
+        wrapper.find('button').at(0).simulate('click');
+        wrapper.find('button').at(1).simulate('click');
+
+        const contador = parseInt( wrapper.find('h2').text() );
+        
+        expect( contador ).toBe(105);
+        
     })
     
 
