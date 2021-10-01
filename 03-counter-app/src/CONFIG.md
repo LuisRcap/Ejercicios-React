@@ -18,7 +18,7 @@ Una vez que se tiene esto, se debe utilizar el archivo __*setupTests.js*__ que s
 
 ```js
 import Enzyme from 'enzyme';
-import Adapter from '@wojtekmajenzyme-adapter-react-17';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {createSerializer} from 'enzyme-to-json';
 
 Enzyme.configure({ adapter: new Adapter() });
