@@ -15,7 +15,7 @@ const Padre = () => {
 
     const incrementar = useCallback( (num) => {
         setValor( v => v + num );
-    }, [setValor]);
+    }, [ setValor ]);
 
 
     return (
