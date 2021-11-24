@@ -18,6 +18,8 @@ const AppRouter = () => {
 
                 <NavBar />
 
+                <div className='container'>
+
                 <Routes>
                     <Route exact path="/" element={ <HomeScreen /> } />
 
@@ -27,6 +29,9 @@ const AppRouter = () => {
                     <Route path="*" element={ <HomeScreen /> } />
 
                 </Routes>
+                
+                </div>
+
 
             </div>
         </Router>
