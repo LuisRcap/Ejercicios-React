@@ -14,6 +14,10 @@ __Instalar Enzyme__
 
 `npm install --save-dev enzyme`
 
+__Instalar Enzyme to JSON__
+
+`npm install --save-dev enzyme-to-json`
+
 Una vez que se tiene esto, se debe utilizar el archivo __*setupTests.js*__ que se encuentra en la carpeta __/src__ (Si no existe se debe crear el archivo), en este archivo se debe agregar las siguientes líneas:
 
 ```js
