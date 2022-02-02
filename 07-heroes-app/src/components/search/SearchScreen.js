@@ -1,15 +1,19 @@
+import HeroCard from "../hero/HeroCard";
 import { useForm } from "../../hooks/useForm";
+import { getHeroesByName } from "../../selectors/getHeroesByName";
 
 const SearchScreen = () => {
 
     const [ { searchText }, handleInputChange ] = useForm({
         searchText: ''
-    })
+    });
+
+    const heroesFileted = getHeroesByName( 'Algo por aqui' );
 
     const handleSearch = (e) => {
         e.preventDefault();
         console.log(searchText)
-    }
+    };
 
     return (
         <>
@@ -38,6 +42,22 @@ const SearchScreen = () => {
                         </button>
                     </form>
                 </div>
+
+                <div className="col-7">
+                    <h4>Resultados</h4>
+                    <hr/>
+
+                    {
+                        heroesFileted.map( hero => (
+                            <HeroCard
+                                key={ hero.id }
+                                { ...hero }
+                            />
+                        ))
+                    }
+
+                </div>
+
             </div>
         </>
     );
