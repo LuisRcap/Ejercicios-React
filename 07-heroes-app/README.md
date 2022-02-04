@@ -2,6 +2,39 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Notas
+
+### React Router V6
+
+Para hacer funcionar esta sección hay que hacer algunas instalaciones, preferentemente leer la documentación [React Router](https://reactrouter.com/). ya que la versión 6 tiene muchos cambios con respecto a la versión 5.
+
+Lo principal es instalar las dependencias con el siguiente comando:
+
+`npm install react-router-dom@6`
+
+Y con esto estará listo para usar los componentes del router con esta versión.
+
+### Query String
+
+Para resivir un query por la ruta de url se puede instalar el paquete de [Query String](https://www.npmjs.com/package/query-string) de **npm**, para esto hay que usar el comando:
+
+
+`npm install query-string`
+
+Posteriormente lo único que hay que hacer es importarlo en donde se requiera usar:
+
+```js
+import queryString from 'query-string';
+```
+
+La forma de usar este paquete es la siguiente:
+
+```js
+const myquery = queryString.parse(location.search);
+```
+
+_Para esto se debe haber usado el hook useLocation() de **react-router-dom**_
+
 ## Available Scripts
 
 In the project directory, you can run:
