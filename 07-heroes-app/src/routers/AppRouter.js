@@ -1,4 +1,4 @@
-import React from 'react';
+import PrivateRoute from './PrivateRoute';
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import LoginScreen from '../components/login/LoginScreen';
 import DashboardRoutes from './DashboardRoutes';
@@ -8,7 +8,15 @@ const AppRouter = () => {
         <Router>
             <Routes>
                 <Route path="/login" element={<LoginScreen />} />
-                <Route path='/*' element={<DashboardRoutes />} />
+
+                <Route path="/*" element={
+                        <PrivateRoute>
+                            <DashboardRoutes/>
+                        </PrivateRoute>
+                    } 
+                />
+
+                {/* <Route path='/*' element={<DashboardRoutes />} /> */}
             </Routes>
         </Router>
     );
