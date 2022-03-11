@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
 
+const heroImages = require.context('../../assets', true);
+
 const HeroScreen = () => {
 
     const {heroeId} = useParams();
@@ -26,7 +28,8 @@ const HeroScreen = () => {
         characters
     } = hero
     
-    const imagePath = `/assets/${id}.jpg`;
+    /* const imagePath = `/assets/${id}.jpg`; */ //desde public assets
+    const imagePath = heroImages(`./${id}.jpg`);
     
 
     return (
