@@ -1,3 +1,11 @@
+## SASS
+Para instalar SASS con Node se usa el comando:
+`npm install node-sass`
+
+## Redux
+Para instalar Redux con react se usa el comando:
+`npm install react-redux redux`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
