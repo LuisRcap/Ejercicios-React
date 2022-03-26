@@ -6,6 +6,22 @@ Para instalar SASS con Node se usa el comando:
 Para instalar Redux con react se usa el comando:
 `npm install react-redux redux`
 
+## Configurar Redux DevTools
+Para configurar las Redux DevTools hay que instalar `redux-devtools-extension` con el comando:
+`npm install --save-dev redux-devtools-extension`
+
+Para poder utilizarlo en tu archivo JavaScript se hace de la siguiente manera:
+
+```javascript
+import { composeWithDevTools } from 'redux-devtools-extension';
+// otros paquetes importados
+
+export const store = createStore(
+    reducers,
+    composeWithDevTools()
+);
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
