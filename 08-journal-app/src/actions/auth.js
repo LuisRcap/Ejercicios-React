@@ -9,11 +9,11 @@ export const startLoginEmailPassword = ( email, password ) => {
 
         firebase.auth().signInWithEmailAndPassword( email, password )
         .then( ({ user }) => {
-            dispatch( finishLoading() );
             dispatch( login( user.uid, user.displayName ) );
-        }).catch( (err) => {
             dispatch( finishLoading() );
+        }).catch( (err) => {
             console.log( err );
+            dispatch( finishLoading() );
         });
     }
 }
