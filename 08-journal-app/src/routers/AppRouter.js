@@ -10,11 +10,15 @@ import {
 import { firebase } from '../firebase/firebaseConfig';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
+import { useState } from 'react';
 
 
 const AppRouter = () => {
 
   const dispatch = useDispatch();
+
+  const [checking, setChecking] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     
@@ -22,12 +26,19 @@ const AppRouter = () => {
       
       if( user?.uid ) {
         dispatch( login( user.uid, user.displayName ) )
+        setIsLoggedIn( true );
       }
+      setChecking(false);
 
     });
 
-  }, [ dispatch ]);
+  }, [ dispatch, setChecking, setIsLoggedIn ]);
   
+  if( checking ) {
+    return (
+      <h1>Espere...</h1>
+    )
+  }
 
   return (
     <Router>
