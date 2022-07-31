@@ -36,7 +36,7 @@ const AddCategory = ({ onNewCategory }) => {
 };
 
 AddCategory.propTypes = {
-    setCategories: PropTypes.func.isRequired
+    onNewCategory: PropTypes.func.isRequired
 };
 
 export default AddCategory;

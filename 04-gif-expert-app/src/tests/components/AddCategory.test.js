@@ -1,10 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { fireEvent, render, screen } from '@testing-library/react';
 import AddCategory from '../../components/AddCategory';
 
 describe('Pruebas en <AddCategory />', () => {
     
-    const setCategories = jest.fn();
+    /* const setCategories = jest.fn();
     let wrapper = shallow( <AddCategory setCategories={ setCategories } /> );
 
     beforeEach( () => {
@@ -16,20 +15,21 @@ describe('Pruebas en <AddCategory />', () => {
     
         expect( wrapper ).toMatchSnapshot();
 
-    });
+    }); */
     
-    test('Debe de cambiar la caja de texto', () => {
+    test('Debe de cambiar el valor de la caja de texto', () => {
         
-        const input = wrapper.find('input');
-        const value = 'Hola Mundo';
+        render( <AddCategory onNewCategory={ () => {} } /> );
+        const input = screen.getByRole('textbox');
 
-        input.simulate('change', { target: { value } });
+        fireEvent.input( input, { target: { value: 'Saitama' } } );
 
-        expect( wrapper.find('p').text().trim() ).toBe( value );
+        expect( input.value ).toBe('Saitama');
+        //screen.debug();
 
     });
     
-    test('No debe de postear la información con Submit', () => {
+    /* test('No debe de postear la información con Submit', () => {
         
         wrapper.find('form').simulate('submit', { preventDefault(){} });
 
@@ -49,7 +49,7 @@ describe('Pruebas en <AddCategory />', () => {
         expect( setCategories ).toHaveBeenCalledWith( expect.any(Function) );   //Se espera que setCategories sea una función
         expect( input.prop('value') ).toBe('');
 
-    });
+    }); */
     
 
 });
