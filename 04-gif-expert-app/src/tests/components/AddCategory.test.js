@@ -3,20 +3,6 @@ import AddCategory from '../../components/AddCategory';
 
 describe('Pruebas en <AddCategory />', () => {
     
-    /* const setCategories = jest.fn();
-    let wrapper = shallow( <AddCategory setCategories={ setCategories } /> );
-
-    beforeEach( () => {
-       jest.clearAllMocks();
-       wrapper = shallow( <AddCategory setCategories={ setCategories } /> );
-    });
-
-    test('Debe de mostrarse correctamente', () => {
-    
-        expect( wrapper ).toMatchSnapshot();
-
-    }); */
-    
     test('Debe de cambiar el valor de la caja de texto', () => {
         
         render( <AddCategory onNewCategory={ () => {} } /> );
@@ -28,28 +14,36 @@ describe('Pruebas en <AddCategory />', () => {
         //screen.debug();
 
     });
-    
-    /* test('No debe de postear la información con Submit', () => {
-        
-        wrapper.find('form').simulate('submit', { preventDefault(){} });
 
-        expect( setCategories ).not.toHaveBeenCalled();
+    test( 'Debe de llamar onNewCategory si el input tiene un valor', () => {
+        const inputValue = 'Saitama';
+        const onNewCategory = jest.fn();
+        // TODO: ???
+
+        render( <AddCategory onNewCategory={ onNewCategory } /> );
+        const input = screen.getByRole('textbox');
+        const form = screen.getByRole('form');
+
+        fireEvent.input( input, { target: { value: inputValue } } );
+        fireEvent.submit( form );
+
+        expect( input.value ).toBe('');
+
+        expect( onNewCategory ).toHaveBeenCalled();
+        expect( onNewCategory ).toHaveBeenCalledTimes(1);
+        expect( onNewCategory ).toHaveBeenCalledWith(inputValue);
     });
-    
-    test('Debe de llamar el setCategory y limpiar la caja de texto', () => {
-        
-        const input = wrapper.find('input');
-        const value = 'Hola Mundo';
 
-        input.simulate('change', { target: { value } });
-        wrapper.find('form').simulate('submit', { preventDefault(){} });
+    test( 'No debe de llamar el onNewCategory si el input estávacío', () => {
 
-        expect( setCategories ).toHaveBeenCalled();
-        expect( setCategories ).toHaveBeenCalledTimes(1);
-        expect( setCategories ).toHaveBeenCalledWith( expect.any(Function) );   //Se espera que setCategories sea una función
-        expect( input.prop('value') ).toBe('');
+        const onNewCategory = jest.fn();
 
-    }); */
-    
+        render( <AddCategory onNewCategory={ onNewCategory } /> );
+        const form = screen.getByRole('form');
+
+        fireEvent.submit( form );
+
+        expect( onNewCategory ).not.toHaveBeenCalled();
+    });   
 
 });
