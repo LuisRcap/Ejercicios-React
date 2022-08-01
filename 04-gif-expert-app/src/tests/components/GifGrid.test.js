@@ -1,5 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import GifGrid from '../../components/GifGrid';
 import { useFetchGifs } from '../../hooks/useFetchGifs';
 jest.mock('../../hooks/useFetchGifs');
@@ -12,37 +11,37 @@ describe('Pruebas en <GifGrid />', () => {
         
         useFetchGifs.mockReturnValue({
             data: [],
-            loading: true
+            isLoading: true
         });
-        const wrapper = shallow(<GifGrid category={ value } />);
-
-        expect( wrapper ).toMatchSnapshot();
+        
+        render( <GifGrid category={value} /> );
+        expect( screen.getByText(value) );
     });
 
-    test('debe de mostrar items cuando se cargan imágenes useFetchGifs', () => {
+    test( 'Debe de mostrar items cuando se cargan las imágenes useFetchGifs', () => {
+        
+        const gifs = [
+            {
+                id: 'ABC',
+                title: 'Star Wars',
+                url: 'https://localhost/star-wars.jpg'
+            },
+            {
+                id: 'DEF',
+                title: 'Goku',
+                url: 'https://localhost/goku.jpg'
+            }
+        ];
 
-        const gifs = [{
-            id: 'ABC',
-            url: 'https://localgost/algo.jpg',
-            title: 'Algo'
-        },
-        {
-            id: '123',
-            url: 'https://localgost/algo.jpg',
-            title: 'Algo'
-        }];
         useFetchGifs.mockReturnValue({
             data: gifs,
-            loading: false
+            isLoading: false
         });
 
-        const wrapper = shallow(<GifGrid category={ value } />);
+        render( <GifGrid category={value} /> );
+        expect( screen.getAllByRole('img').length ).toBe(gifs.length);
 
-        expect( wrapper ).toMatchSnapshot();
-        expect( wrapper.find('p').exists() ).toBe( false );
-        expect( wrapper.find('GifGridItem').length ).toBe(gifs.length);
-
-    });
-    
+        screen.debug();
+    })
     
 });

@@ -6,7 +6,8 @@ import GifGridItem from './GifGridItem';
 
 const GifGrid = ({ category }) => {
 
-    const {data:images, loading} = useFetchGifs( category );    
+    const {data:images, loading} = useFetchGifs( category );
+    console.log(images);  
 
     return (
         <>
