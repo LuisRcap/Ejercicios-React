@@ -1,36 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pruebas en <GifExpertApp /> Debe de mostrar el componente correctamente 1`] = `
-<Fragment>
+<div>
   <h2>
     GifExpertApp
   </h2>
-  <AddCategory
-    setCategories={[Function]}
-  />
+  <form
+    aria-label="form"
+  >
+    <p />
+    <input
+      id="gif-input"
+      type="text"
+      value=""
+    />
+    <button
+      class="btn"
+      type="submit"
+    >
+      Agregar
+    </button>
+  </form>
   <hr />
   <ol />
-</Fragment>
+</div>
 `;
 
 exports[`Pruebas en <GifExpertApp /> Debe mostrar una lista de categorías 1`] = `
-<Fragment>
+<div>
   <h2>
     GifExpertApp
   </h2>
-  <AddCategory
-    setCategories={[Function]}
-  />
+  <form
+    aria-label="form"
+  >
+    <p />
+    <input
+      id="gif-input"
+      type="text"
+      value=""
+    />
+    <button
+      class="btn"
+      type="submit"
+    >
+      Agregar
+    </button>
+  </form>
   <hr />
   <ol>
-    <GifGrid
-      category="One Punch"
-      key="One Punch"
+    <h3
+      class="animate__animated animate__fadeIn"
+    >
+      One Punch
+    </h3>
+    <p
+      class="animate__animated animate__flash"
+    >
+      Loading
+    </p>
+    <div
+      class="card-grid"
     />
-    <GifGrid
-      category="Dragon Ball"
-      key="Dragon Ball"
+    <h3
+      class="animate__animated animate__fadeIn"
+    >
+      Dragon Ball
+    </h3>
+    <p
+      class="animate__animated animate__flash"
+    >
+      Loading
+    </p>
+    <div
+      class="card-grid"
     />
   </ol>
-</Fragment>
+</div>
 `;
